@@ -30,13 +30,26 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 int main(int argc, char **argv)
 {
+    std::cout << "Arguments: inputFile.vg outputFile.obj" << std::endl;
+
+    std::cout << "Have " << argc << " arguments:" << std::endl;
+    for (int i = 0; i < argc; ++i) {
+        std::cout << argv[i] << std::endl;
+    }
+
+    // input point cloud file name
+    std::string input_file = std::string(argv[1]);
+    // output mesh file name
+    std::string output_file = std::string(argv[2]);;
+
+
     // initialize the logger (this is not optional)
     Logger::initialize();
 
-    // input point cloud file name
-    const std::string input_file = std::string(POLYFIT_ROOT_DIR) + "/toy_data.bvg";
-    // output mesh file name
-    const std::string output_file = std::string(POLYFIT_ROOT_DIR) + "/toy_data-result.obj";
+    //// input point cloud file name
+    //const std::string input_file = std::string(POLYFIT_ROOT_DIR) + "/toy_data.bvg";
+    //// output mesh file name
+    //const std::string output_file = std::string(POLYFIT_ROOT_DIR) + "/toy_data-result.obj";
 
     // below are the default parameters (change these when necessary)
     Method::lambda_data_fitting = 0.43;
